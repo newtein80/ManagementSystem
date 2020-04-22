@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagementSystem.Api", "Man
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{E8307765-2874-4F5E-9B68-C793412185CF}"
 	ProjectSection(SolutionItems) = preProject
+		D:\20200416중요내꺼소스들회사\source\repos\newtein80\COREAPP2\Create_Database.sql = D:\20200416중요내꺼소스들회사\source\repos\newtein80\COREAPP2\Create_Database.sql
 		newtein80.md = newtein80.md
 		ReferenceUrl.txt = ReferenceUrl.txt
 	EndProjectSection
