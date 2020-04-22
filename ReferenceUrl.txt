@@ -1,0 +1,9 @@
+- Youtube
+https://www.youtube.com/watch?v=03nVmrdvNQc
+
+- gitignore
+https://www.gitignore.io/api/react,windows,aspnetcore,visualstudio,visualstudiocode
+
+- git
+https://github.com/newtein80
+
