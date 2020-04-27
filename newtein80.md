@@ -44,3 +44,10 @@
 - core 프레임워크의 Service에 사용자 정보관련 Service 클래스 등록 (Dependency Injection) - Scope
 - infra 프로젝트에서 add-migration AddAssetEntities 실행 (Entities - Database 관련 작업 작성)
 - update-migration 실행 (Entities - Database 관련 작업 실행)
+
+#### 4. MediatR and FluentValidation
+- Application 프로젝트에 MediatR, FluentValidation 패키지 추가
+	- FluentValidation
+	- FluentValidation.dependencyinjectionExtensions
+	- MediatR.Extensions.Microsoft.DependencyInjections
+- Application 프로젝트에 Command 관련 폴더 및 클래스 추가

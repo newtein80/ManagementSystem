@@ -13,6 +13,7 @@ using ManagementSystem.Infra.Injections;
 using ManagementSystem.Infra.Injections.InjectionTest;
 using ManagementSystem.Application.Common.Interface;
 using ManagementSystem.Api.Services;
+using ManagementSystem.Application;
 
 namespace ManagementSystem.Api
 {
@@ -28,6 +29,7 @@ namespace ManagementSystem.Api
         // 이 메소드는 런타임에 의해 호출됩니다. 컨테이너에 서비스를 추가하려면이 방법을 사용하십시오.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplication();
             services.AddInfra(Configuration);
 
             services.AddScoped<ICurrentUserService, CurrentUserService>();
