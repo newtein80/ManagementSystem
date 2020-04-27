@@ -27,11 +27,17 @@ namespace ManagementSystem.Api.Controllers
             _logger = logger;
             _dependencyTest = dependencyTest;
         }
+        /*public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        {
+            _logger = logger;
+        }*/
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
+        //public IEnumerable<WeatherForecast> Get([FromServices] IDependencyTest dependencyTest)
         {
             _dependencyTest.Test();
+            //dependencyTest.Test();
             _logger.LogInformation("Logger Test");
 
             var rng = new Random();
