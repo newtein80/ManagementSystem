@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ManagementSystem.Infra.Injections;
 using ManagementSystem.Infra.Injections.InjectionTest;
+using ManagementSystem.Application.Common.Interface;
+using ManagementSystem.Api.Services;
 
 namespace ManagementSystem.Api
 {
@@ -27,6 +29,8 @@ namespace ManagementSystem.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfra(Configuration);
+
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

@@ -29,3 +29,18 @@
 		- 명령 실행 대상 프로젝트 확인 (기본 프로젝트: ManagementSystem.Infra)
 		- add-migration 명령어 실행 위치(경로)
 	- `update-database` 명령어 실행(실제 테이블 생성)
+
+#### 3. Domian 작성
+- AuditEntity, AssetPrimaryInfo, AssetSubInfo
+- Enum 클래스 추가
+- Application Project 에 Microsoft.EntityFrameworkCore 패키지 참조 추가
+- Application Project 에 ManagementSystem.Domain 프로젝트 참조 추가
+- Application Project
+	- Interface 작성
+	- IApplicationDbContext.cs
+	- ICurrentUserService.cs
+- Infra 프로젝트의 ApplicationDbContext 의 부모클래스에 IApplicationDbContext 추가 및 인터페이스 구현
+- Api 프로젝트에서 사용할 사용자 정보 관련 Service 클래스 작성
+- core 프레임워크의 Service에 사용자 정보관련 Service 클래스 등록 (Dependency Injection) - Scope
+- infra 프로젝트에서 add-migration AddAssetEntities 실행 (Entities - Database 관련 작업 작성)
+- update-migration 실행 (Entities - Database 관련 작업 실행)

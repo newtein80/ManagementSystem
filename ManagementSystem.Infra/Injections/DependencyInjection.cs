@@ -1,4 +1,5 @@
-﻿using ManagementSystem.Infra.Data;
+﻿using ManagementSystem.Application.Common.Interface;
+using ManagementSystem.Infra.Data;
 using ManagementSystem.Infra.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +15,14 @@ namespace ManagementSystem.Infra.Injections
     {
         public static IServiceCollection AddInfra(this IServiceCollection services, IConfiguration configuration)
         {
+            // 언제 변경했는지 모름???
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection")));
+                    configuration.GetConnectionString("DefaultConnection"),
+                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+
+            // Dependency Injection !!!
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
