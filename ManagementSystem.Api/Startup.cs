@@ -14,6 +14,8 @@ using ManagementSystem.Infra.Injections.InjectionTest;
 using ManagementSystem.Application.Common.Interface;
 using ManagementSystem.Api.Services;
 using ManagementSystem.Application;
+using System.Linq;
+using NSwag.Generation.Processors.Security;
 
 namespace ManagementSystem.Api
 {
@@ -44,6 +46,20 @@ namespace ManagementSystem.Api
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddOpenApiDocument(configure =>
+            {
+                configure.Title = "Management App API";
+                configure.AddSecurity("JWT", Enumerable.Empty<string>(), new NSwag.OpenApiSecurityScheme
+                {
+                    Type = NSwag.OpenApiSecuritySchemeType.ApiKey,
+                    Name = "Authorization",
+                    In = NSwag.OpenApiSecurityApiKeyLocation.Header,
+                    Description = "Type into the textbox: Bearer {your JWT token}"
+                });
+
+                configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
+            });
         }
 
         // 이 메소드는 런타임에 의해 호출됩니다. 이 방법을 사용하여 HTTP 요청 파이프 라인을 구성하십시오.
@@ -53,6 +69,8 @@ namespace ManagementSystem.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                app.UseOpenApi();
+                app.UseSwaggerUi3();
             }
             else
             {
