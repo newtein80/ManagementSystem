@@ -27,5 +27,5 @@
 		- 연결문자열
 		(appsettings.json > DefaultConnection)
 		- 명령 실행 대상 프로젝트 확인 (기본 프로젝트: ManagementSystem.Infra)
-		- add-migration 명령어 실행 위치
+		- add-migration 명령어 실행 위치(경로)
 	- `update-database` 명령어 실행(실제 테이블 생성)

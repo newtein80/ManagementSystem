@@ -7,3 +7,5 @@ https://www.gitignore.io/api/react,windows,aspnetcore,visualstudio,visualstudioc
 - git
 https://github.com/newtein80
 
+- Blog
+https://m.blog.naver.com/islove8587/221029900556

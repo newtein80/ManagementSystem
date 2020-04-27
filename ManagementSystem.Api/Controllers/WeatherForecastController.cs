@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ManagementSystem.Infra.Injections.InjectionTest;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -19,15 +20,20 @@ namespace ManagementSystem.Api.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IDependencyTest _dependencyTest;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IDependencyTest dependencyTest)
         {
             _logger = logger;
+            _dependencyTest = dependencyTest;
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            _dependencyTest.Test();
+            _logger.LogInformation("Logger Test");
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

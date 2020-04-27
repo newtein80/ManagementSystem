@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ManagementSystem.Infra.Injections;
+using ManagementSystem.Infra.Injections.InjectionTest;
 
 namespace ManagementSystem.Api
 {
@@ -22,7 +23,7 @@ namespace ManagementSystem.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // 이 메소드는 런타임에 의해 호출됩니다. 컨테이너에 서비스를 추가하려면이 방법을 사용하십시오.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfra(Configuration);
@@ -30,14 +31,16 @@ namespace ManagementSystem.Api
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            // In production, the React files will be served from this directory
+            services.AddScoped<IDependencyTest, DependencyTest>();
+
+            // In production, React 파일은 이 디렉토리에서 제공됩니다
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // 이 메소드는 런타임에 의해 호출됩니다. 이 방법을 사용하여 HTTP 요청 파이프 라인을 구성하십시오.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -51,7 +54,7 @@ namespace ManagementSystem.Api
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
