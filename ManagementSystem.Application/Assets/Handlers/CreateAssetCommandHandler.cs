@@ -1,4 +1,5 @@
-﻿using ManagementSystem.Application.Assets.Commands;
+﻿using AutoMapper;
+using ManagementSystem.Application.Assets.Commands;
 using ManagementSystem.Application.Common.Interface;
 using ManagementSystem.Domain.Entities;
 using MediatR;
@@ -14,14 +15,16 @@ namespace ManagementSystem.Application.Assets.Handlers
     public class CreateAssetCommandHandler : IRequestHandler<CreateAssetCommand, int>
     {
         private readonly IApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public CreateAssetCommandHandler(IApplicationDbContext context)
+        public CreateAssetCommandHandler(IApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         public async Task<int> Handle(CreateAssetCommand request, CancellationToken cancellationToken)
         {
-            var entity = new AssetPrimaryInfo
+            /*var entity = new AssetPrimaryInfo
             {
                 AssetName = request.AssetName,
                 HostName = request.HostName,
@@ -39,7 +42,8 @@ namespace ManagementSystem.Application.Assets.Handlers
                     OrgName = i.OrgName,
                     RiskGrade = i.RiskGrade
                 }).ToList()
-            };
+            };*/
+            var entity = _mapper.Map<AssetPrimaryInfo>(request);
 
             _context.AssetPrimaryInfos.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
