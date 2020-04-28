@@ -3,20 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagementSystem.Api", "ManagementSystem.Api\ManagementSystem.Api.csproj", "{2106CA9A-EE26-423B-8B08-D5C4E01364EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementSystem.Api", "ManagementSystem.Api\ManagementSystem.Api.csproj", "{2106CA9A-EE26-423B-8B08-D5C4E01364EB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{E8307765-2874-4F5E-9B68-C793412185CF}"
 	ProjectSection(SolutionItems) = preProject
-		D:\20200416중요내꺼소스들회사\source\repos\newtein80\COREAPP2\Create_Database.sql = D:\20200416중요내꺼소스들회사\source\repos\newtein80\COREAPP2\Create_Database.sql
 		newtein80.md = newtein80.md
 		ReferenceUrl.txt = ReferenceUrl.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagementSystem.Domain", "ManagementSystem.Domain\ManagementSystem.Domain.csproj", "{0516A536-23A2-47CD-9A65-503F58DF0FE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementSystem.Domain", "ManagementSystem.Domain\ManagementSystem.Domain.csproj", "{0516A536-23A2-47CD-9A65-503F58DF0FE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagementSystem.Application", "ManagementSystem.Application\ManagementSystem.Application.csproj", "{7B1C5273-57F9-41EB-BB8B-E9CCEC38D0D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementSystem.Application", "ManagementSystem.Application\ManagementSystem.Application.csproj", "{7B1C5273-57F9-41EB-BB8B-E9CCEC38D0D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagementSystem.Infra", "ManagementSystem.Infra\ManagementSystem.Infra.csproj", "{C6A274F4-26A4-4465-A17C-944D35B8A7D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementSystem.Infra", "ManagementSystem.Infra\ManagementSystem.Infra.csproj", "{C6A274F4-26A4-4465-A17C-944D35B8A7D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestDatabase", "TestDatabase", "{6BA18981-93D9-4194-B05D-69A819BA19B1}"
+	ProjectSection(SolutionItems) = preProject
+		Create_Database.sql = Create_Database.sql
+		Dapper_test_procedure_01.sql = Dapper_test_procedure_01.sql
+		Dapper_test_table_01.sql = Dapper_test_table_01.sql
+		Dapper_test_table_02.sql = Dapper_test_table_02.sql
+		Dapper_test_table_03.sql = Dapper_test_table_03.sql
+		Dapper_test_table_04.sql = Dapper_test_table_04.sql
+		Dapper_test_table_05.sql = Dapper_test_table_05.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +53,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6BA18981-93D9-4194-B05D-69A819BA19B1} = {E8307765-2874-4F5E-9B68-C793412185CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDE859BB-F745-49C3-BA12-66AE163E8D5E}

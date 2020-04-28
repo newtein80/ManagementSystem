@@ -16,6 +16,8 @@ using ManagementSystem.Api.Services;
 using ManagementSystem.Application;
 using System.Linq;
 using NSwag.Generation.Processors.Security;
+using ManagementSystem.Infra.Models;
+using ManagementSystem.Infra;
 
 namespace ManagementSystem.Api
 {
@@ -31,9 +33,11 @@ namespace ManagementSystem.Api
         // 이 메소드는 런타임에 의해 호출됩니다. 컨테이너에 서비스를 추가하려면이 방법을 사용하십시오.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<ReadConfig>(Configuration.GetSection("ConnectionStrings").GetSection("DefaultConnection"));
             services.AddApplication();
             services.AddInfra(Configuration);
 
+            services.AddInfraDependencyInjection();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             services.AddControllersWithViews();
